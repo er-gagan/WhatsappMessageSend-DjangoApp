@@ -3,15 +3,19 @@
   <div class="container my-3">
       <h3>Please enter mobile number and message</h3>
       <hr>
-    <form method="POST" action="#">
+    <form method="POST" action="SendData">
+      {% csrf_token %}
         <div class="form-group mt-4">
           <label for="Phone">Enter Phone Number +91</label>
-          <input type="Phone" class="form-control" id="Phone" aria-describedby="Phone">
+          <input required autofocus type="Phone" class="form-control" name="Phone" id="Phone" aria-describedby="Phone">
         </div>
         <div class="form-group">
             <label for="Message">Enter Message:</label>
-            <textarea class="form-control" rows="5" id="Message"></textarea>
+            <textarea required class="form-control" rows="5" name="Message" id="Message"></textarea>
           </div>
+
+        <input type="Submit" value="Send" class="btn btn-primary btn-lg">
+        <a href="/" class="btn btn-secondary btn-lg ml-5">Clear</a> {{info}}
     </form>
   </div>
 {% endblock body %}
