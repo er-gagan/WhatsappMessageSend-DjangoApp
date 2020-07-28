@@ -18,7 +18,6 @@ def SendData(request):
     if request.method == 'POST':
         Num = request.POST['Phone']
         Msg = request.POST['Message']
-        print(Num,Msg)
         Whatsapp(Num,Msg)
         info = "Message has successfully sent.."
         return render(request,"Whatsapp/home.html",{'info':info})
